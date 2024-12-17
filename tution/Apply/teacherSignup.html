@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Signup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Back Arrow Button -->
+        <div class="back-arrow" onclick="window.location.href='teacher.html'">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Login</span>
+        </div>
+
+        <!-- Step 1: Basic Information -->
+        <div id="step1" class="form-container">
+            <h1>Teacher Signup</h1>
+            <p class="form-description">Step 1: Basic Information</p>
+            
+            <form id="signupForm" onsubmit="handleNextStep(event)">
+                
+                <p class="form-description">Create your account to apply as a teacher</p>
+            
+            
+                <div class="form-group">
+                    <input type="text" id="fullName" required>
+                    <label for="fullName">Full Name</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="email" required>
+                    <label for="email">Email Address</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" id="phone" required>
+                    <label for="phone">Phone Number</label>
+                </div>
+
+                
+                <div class="form-group subjects-group">
+                    <label class="subjects-label">Select Subjects You Can Teach</label>
+                    <div class="subjects-grid">
+                        <div class="subject-item">
+                            <input type="checkbox" id="mathematics" value="mathematics" class="subject-checkbox">
+                            <label for="mathematics">
+                                <i class="fas fa-square-root-alt"></i>
+                                Mathematics
+                            </label>
+                        </div>
+                        <div class="subject-item">
+                            <input type="checkbox" id="science" value="science" class="subject-checkbox">
+                            <label for="science">
+                                <i class="fas fa-flask"></i>
+                                Science
+                            </label>
+                        </div>
+                        <div class="subject-item">
+                            <input type="checkbox" id="english" value="english" class="subject-checkbox">
+                            <label for="english">
+                                <i class="fas fa-book"></i>
+                                English
+                            </label>
+                        </div>
+                        <div class="subject-item">
+                            <input type="checkbox" id="physics" value="physics" class="subject-checkbox">
+                            <label for="physics">
+                                <i class="fas fa-atom"></i>
+                                Physics
+                            </label>
+                        </div>
+                        <div class="subject-item">
+                            <input type="checkbox" id="chemistry" value="chemistry" class="subject-checkbox">
+                            <label for="chemistry">
+                                <i class="fas fa-vial"></i>
+                                Chemistry
+                            </label>
+                        </div>
+                        <div class="subject-item">
+                            <input type="checkbox" id="computer" value="computer" class="subject-checkbox">
+                            <label for="computer">
+                                <i class="fas fa-laptop-code"></i>
+                                Computer
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+<!-- fees -->
+<div class="form-group">
+    <input type="text" id="fees" required 
+           placeholder="e.g., 1000-2000 or 1000+" >
+    <label for="fees">Fee Range (Rs.)</label>
+    <small class="fee-hint">Enter your fee range (e.g., "1000-2000" or "1000+")</small>
+</div>
+
+                <div class="form-group">
+                    <input type="password" id="password" required>
+                    <label for="password">Create Password</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="confirmPassword" required>
+                    <label for="confirmPassword">Confirm Password</label>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span>Next</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+
+                <div class="form-links">
+                    <a href="teacher.html" class="login-link">
+                        <i class="fas fa-sign-in-alt"></i> Already have an account? Login
+                    </a>
+                </div>
+            </form>
+        </div>
+
+        <div id="step2" class="form-container" style="display: none;">
+            <h1>Upload CV</h1>
+            <p class="form-description">Step 2: Upload your CV and additional documents</p>
+        
+            <form id="cvForm" onsubmit="handleSignup(event)">
+                <!-- CV Upload -->
+               <!-- Replace your existing upload container HTML -->
+<div class="upload-container">
+    <div class="upload-box">
+        <input type="file" id="cv" accept=".pdf,.doc,.docx" required>
+        <label for="cv">
+            <i class="fas fa-file-upload"></i>
+            <span>Choose CV (PDF, DOC, DOCX) (2MB max)</span>
+        </label>
+        <div id="cvFileName" class="file-name"></div>
+    </div>
+</div>
+
+<div class="upload-container">
+    <div class="upload-box">
+        <input type="file" id="certificates" accept=".pdf,.doc,.docx" multiple>
+        <label for="certificates">
+            <i class="fas fa-certificate"></i>
+            <span>Additional Certificates (Optional)</span>
+        </label>
+        <div id="certificateFiles" class="file-name"></div>
+    </div>
+</div>
+
+        <div class="terms-container">
+            <h3 class="terms-title">Terms and Conditions</h3>
+            <div class="terms-box">
+                <div class="terms-content">
+                    <h4>Teacher Application Terms:</h4>
+                    <ol>
+                        <li>I hereby declare that all the information provided in this application is true and correct.</li>
+                        <li>I understand that any false statements may result in the rejection of my application.</li>
+                        <li>I confirm that all uploaded documents are genuine and valid.</li>
+                        <li>I agree to:</li>
+                        <ul>
+                            <li>Maintain professional conduct at all times</li>
+                            <li>Follow the school's policies and procedures</li>
+                            <li>Participate in training and development programs</li>
+                            <li>Maintain confidentiality of student information</li>
+                        </ul>
+                        <li>I understand that my application will be reviewed and does not guarantee employment.</li>
+                        <li>I authorize the verification of my credentials and references.</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="terms-acceptance">
+                <input type="checkbox" id="acceptTerms" required>
+                <label for="acceptTerms">I have read and agree to the terms and conditions</label>
+            </div>
+        </div>
+
+        <div class="confirmation-container">
+            <h3 class="confirmation-title">Digital Confirmation</h3>
+            <p class="confirmation-subtitle">By typing your full name below, you confirm your agreement to the above terms</p>
+            
+            <div class="form-group">
+                <input type="text" id="confirmationName" required>
+                <label for="confirmationName">Type your full name</label>
+            </div>
+            <p class="confirmation-hint">Please type your full name exactly as entered above</p>
+        </div>
+
+
+
+        <div class="button-group">
+            <button type="button" onclick="showStep(1)" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back</span>
+            </button>
+            <button type="submit" class="submit-btn">
+                <span>Create Account</span>
+                <i class="fas fa-user-plus"></i>
+            </button>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+<!-- Add these styles -->
+<style>
+    .terms-container {
+        margin-bottom: 30px;
+    }
+
+    .terms-title {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 1.1em;
+    }
+
+    .terms-box {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        background: #f8f9fa;
+        margin-bottom: 15px;
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    .terms-content {
+        color: #444;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .terms-content h4 {
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .terms-content ol {
+        padding-left: 20px;
+        margin-bottom: 10px;
+    }
+
+    .terms-content ul {
+        padding-left: 40px;
+        margin: 5px 0;
+    }
+
+    .terms-content li {
+        margin-bottom: 8px;
+    }
+
+    .terms-acceptance {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .terms-acceptance input[type="checkbox"] {
+        width: auto;
+        margin-right: 10px;
+    }
+
+    .terms-acceptance label {
+        position: static;
+        color: #333;
+        font-size: 14px;
+        background: none;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    .confirmation-container {
+        margin: 30px 0;
+    }
+
+    .confirmation-title {
+        color: #333;
+        margin-bottom: 10px;
+        font-size: 1.1em;
+    }
+
+    .confirmation-subtitle {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .confirmation-hint {
+        color: #666;
+        font-size: 13px;
+        margin-top: 5px;
+    }
+
+
+    /* Update your existing signature styles if needed */
+</style>
+
+
+    
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .form-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .form-description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus {
+            border-color: #43cea2;
+            outline: none;
+        }
+        
+        label {
+            position: absolute;
+            left: 12px;
+            top: 12px;
+            color: #666;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            background: white;
+            padding: 0 5px;
+        }
+        
+        input:focus ~ label,
+        input:valid ~ label {
+            top: -10px;
+            left: 10px;
+            font-size: 14px;
+            color: #43cea2;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-arrow {
+            position:relative;
+            padding: 7px 10px;
+            margin: 1px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .back-arrow:hover {
+            transform: translateX(-5px);
+        }
+        
+        .form-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .form-links a {
+            color: #185a9d;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .form-links a:hover {
+            color: #43cea2;
+        }
+
+        .file-upload {
+            margin-bottom: 30px;
+        }
+
+        .file-upload input[type="file"] {
+            display: none;
+        }
+
+        .file-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            background: #f5f5f5;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-label:hover {
+            border-color: #43cea2;
+            background: #f0f9f6;
+        }
+
+        .file-name, .selected-files {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .button-group .back-btn {
+            flex: 1;
+            padding: 15px;
+            background: #f5f5f5;
+            color: #666;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .button-group .back-btn:hover {
+            background: #e5e5e5;
+        }
+
+        .button-group .submit-btn {
+            flex: 2;
+        }
+
+
+
+.upload-box {
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+    position: relative; /* Add this */
+    cursor: pointer;
+}
+
+.upload-box:hover {
+    border-color: #43cea2;
+    background: #f0f9f6;
+}
+
+.upload-box input[type="file"] {
+    position: absolute; /* Change from display: none */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.upload-box label {
+    display: block;
+    position: relative; /* Change from static */
+    background: transparent;
+    pointer-events: none; /* Add this */
+    z-index: 1;
+    padding: 20px;
+    margin: 0;
+}
+
+.upload-box label i {
+    font-size: 24px;
+    color: #43cea2;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.upload-box label span {
+    color: #666;
+    font-size: 16px;
+    display: block;
+    margin-top: 10px;
+}
+        
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 20px;
+            }
+        
+            h1 {
+                font-size: 2em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 10px;
+            }
+        
+            h1 {
+                font-size: 1.8em;
+            }
+        
+            .form-description {
+                font-size: 14px;
+            }
+        
+            .submit-btn {
+                font-size: 16px;
+            }
+        }
+    </style>
+
+<style>
+    
+  /* subjects */
+
+
+/* Subject Selection Styles */
+.subjects-group {
+    margin-bottom: 25px;
+}
+
+.subjects-label {
+    display: block;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    position: static !important;
+}
+
+.subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    padding: 15px;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.subject-item {
+    position: relative;
+}
+
+.subject-item input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+    margin: 0;
+}
+
+.subject-item label {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #555;
+    z-index: 1;
+    position: static !important;
+    margin: 0;
+    width: 100%;
+    font-weight: 500;
+}
+
+.subject-item label i {
+    margin-right: 10px;
+    font-size: 16px;
+    min-width: 20px;
+    color: #666;
+}
+
+/* Selected state */
+.subject-item input[type="checkbox"]:checked + label {
+    background: #43cea2;
+    border-color: #43cea2;
+    color: white;
+}
+
+.subject-item input[type="checkbox"]:checked + label i {
+    color: white;
+}
+
+/* Hover state */
+.subject-item:hover label {
+    border-color: #43cea2;
+    background: #f0f9f6;
+}
+
+/* Keep hover color darker when selected */
+.subject-item input[type="checkbox"]:checked:hover + label {
+    background: #3bb994;
+}
+
+
+
+
+</style>
+
+<style>
+    /* fees styles */
+
+    .fee-hint {
+        display: block;
+        font-size: 12px;
+        color: #666;
+        margin-top: 4px;
+    }
+
+    #fees::placeholder {
+        color: #aaa;
+        font-size: 14px;
+    }
+
+    #fees:invalid {
+        border-color: #dc3545;
+    }
+
+    #fees:invalid + .fee-hint {
+        color: #dc3545;
+    }
+</style>
+
+
+<script>
+    // Form data storage
+    let formData = {};
+
+    const API_BASE_URL = 'http://localhost:5000/api/teacher-apply/signup'; 
+
+// Utility function to handle API responses
+async function handleApiResponse(response) {
+    if (!response.ok) {
+        const text = await response.text();
+        let error;
+        try {
+            const json = JSON.parse(text);
+            error = new Error(json.message || 'API request failed');
+        } catch (e) {
+            error = new Error(`API request failed: ${text}`);
+        }
+        error.status = response.status;
+        throw error;
+    }
+    return response.json();
+}
+
+    
+    // File size limits
+    const FILE_SIZE_LIMITS = {
+        CV: 2 * 1024 * 1024,        // 2MB in bytes
+        CERTIFICATE: 2 * 1024 * 1024 // 2MB in bytes
+    };
+    
+    // Utility functions
+    function validateFileSize(file, limit) {
+        return file.size <= limit;
+    }
+    
+    function showStep(step) {
+        document.getElementById('step1').style.display = step === 1 ? 'block' : 'none';
+        document.getElementById('step2').style.display = step === 2 ? 'block' : 'none';
+    }
+    
+    // Handle step 1 submission
+    async function handleNextStep(event) {
+        event.preventDefault();
+    
+        // Get form values
+        const fullName = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const fees = document.getElementById('fees').value.trim();
+    
+        // Get selected subjects
+        const selectedSubjects = Array.from(document.querySelectorAll('.subject-checkbox:checked'))
+            .map(checkbox => checkbox.value);
+    
+        // Validations
+        if (!fullName) {
+            alert('Please enter your full name');
+            return;
+        }
+    
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            alert('Please enter a valid email address');
+            return;
+        }
+    
+        if (!phone || !/^\d{10}$/.test(phone)) {
+            alert('Please enter a valid 10-digit phone number');
+            return;
+        }
+    
+        if (selectedSubjects.length === 0) {
+            alert('Please select at least one subject');
+            return;
+        }
+    
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            return;
+        }
+    
+        if (password.length < 6) {
+            alert('Password must be at least 6 characters long');
+            return;
+        }
+    
+        // Validate fee format
+        const feePattern = /^\d+(\-\d+|\+)?$/;
+        if (!feePattern.test(fees)) {
+            alert('Please enter a valid fee range (e.g., "1000-2000" or "1000+")');
+            return;
+        }
+    
+        // If it's a range, validate that the second number is larger
+        if (fees.includes('-')) {
+            const [min, max] = fees.split('-').map(Number);
+            if (min >= max) {
+                alert('The maximum fee should be larger than the minimum fee');
+                return;
+            }
+        }
+    
+        // Store form data
+        formData = {
+            fullName,
+            email,
+            phone,
+            password,
+            subjects: selectedSubjects,
+            fees
+        };
+    
+        console.log('Form data stored:', formData);
+        showStep(2);
+    }
+    
+    // Handle final signup
+    async function handleSignup(event) {
+    event.preventDefault();
+    console.log('Handling signup...');
+
+    try {
+        // Check terms acceptance
+        if (!document.getElementById('acceptTerms').checked) {
+            alert('Please accept the terms and conditions');
+            return;
+        }
+
+        // Check name confirmation
+        const confirmationName = document.getElementById('confirmationName').value.trim();
+        if (confirmationName.toLowerCase() !== formData.fullName.toLowerCase()) {
+            alert('Confirmation name must match your full name exactly');
+            return;
+        }
+
+        // Get files
+        const cvFile = document.getElementById('cv').files[0];
+        const certificateFiles = document.getElementById('certificates').files;
+
+        if (!cvFile) {
+            alert('Please upload your CV');
+            return;
+        }
+
+        // Update button state
+        const submitButton = event.target.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<span>Creating Account...</span><i class="fas fa-spinner fa-spin"></i>';
+
+        // Create FormData and append all data
+        const submitFormData = new FormData();
+        submitFormData.append('fullName', formData.fullName);
+        submitFormData.append('email', formData.email);
+        submitFormData.append('phone', formData.phone);
+        submitFormData.append('password', formData.password);
+        submitFormData.append('fees', formData.fees);
+        submitFormData.append('subjects', JSON.stringify(formData.subjects));
+
+        // Append files
+        submitFormData.append('cv', cvFile);
+        if (certificateFiles.length > 0) {
+            Array.from(certificateFiles).forEach(file => {
+                submitFormData.append('certificates', file);
+            });
+        }
+
+        // Send request to server
+        const response = await fetch('http://localhost:5000/api/teacher-apply/signup', {
+            method: 'POST',
+            body: submitFormData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            alert('Registration successful! Please login to continue.');
+            window.location.href = 'teacher.html';
+        } else {
+            throw new Error(data.message || 'Error creating account');
+        }
+
+    } catch (error) {
+        console.error('Signup Error:', error);
+        alert(`Error creating account: ${error.message}`);
+        
+        // Reset button state
+        const submitButton = event.target.querySelector('button[type="submit"]');
+        submitButton.disabled = false;
+        submitButton.innerHTML = '<span>Create Account</span><i class="fas fa-user-plus"></i>';
+    }
+}
+    
+    // File input event listeners
+    document.getElementById('cv').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            if (!validateFileSize(file, FILE_SIZE_LIMITS.CV)) {
+                alert('CV file size must be less than 2MB');
+                this.value = '';
+                document.getElementById('cvFileName').textContent = '';
+                return;
+            }
+            document.getElementById('cvFileName').textContent = 
+                `${file.name} (${(file.size / (1024 * 1024)).toFixed(2)}MB)`;
+        }
+    });
+    
+    document.getElementById('certificates').addEventListener('change', function(e) {
+        const files = Array.from(e.target.files);
+        let validFiles = true;
+    
+        files.forEach(file => {
+            if (!validateFileSize(file, FILE_SIZE_LIMITS.CERTIFICATE)) {
+                alert(`Certificate "${file.name}" must be less than 2MB`);
+                validFiles = false;
+            }
+        });
+    
+        if (!validFiles) {
+            this.value = '';
+            document.getElementById('certificateFiles').textContent = '';
+            return;
+        }
+    
+        if (files.length) {
+            document.getElementById('certificateFiles').textContent = files
+                .map(file => `${file.name} (${(file.size / (1024 * 1024)).toFixed(2)}MB)`)
+                .join(', ');
+        }
+    });
+    </script>
+
+</body>
+</html>

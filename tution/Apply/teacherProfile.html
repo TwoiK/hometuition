@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Profile</title>
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+           <b> <div class="nav-brand">Teacher Dashboard</div></b>
+            <div class="nav-links">
+                <button onclick="logout()" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </nav>
+
+        <!-- Profile Section -->
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="profile-info">
+                    <h1><i class="fas fa-user-circle"></i> <span id="teacherName">Loading...</span></h1>
+                    <p class="email"><i class="fas fa-envelope"></i> <span id="teacherEmail">Loading...</span></p>
+                    <p class="phone"><i class="fas fa-phone"></i> <span id="teacherPhone">Loading...</span></p>
+                </div>
+            
+
+            
+
+            <!-- Application Status -->
+            <div class="status-section">
+                <h2><i class="fas fa-clipboard-check"></i> Application Status</h2>
+                <div class="status-card">
+                    <div class="status-indicator" id="statusIndicator">Pending Review</div>
+                    <p class="status-description" id="statusDescription">
+                        Your application is currently under review. We will notify you once there's an update.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- Vacancies    -->
+
+<div class="vacancies-section">
+    <a href="vacancies.html" class="vacancy-link">
+        <div class="vacancy-content">
+            <h2><i class="fas fa-briefcase"></i> View Vacancies</h2>
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </a>
+</div>
+
+           
+
+    <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+   
+    background:  #2A9D8F ;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Navbar Styles */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-brand {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #1e4d92;
+}
+
+.logout-btn {
+    background: linear-gradient(110deg, #0ea5e9 0%, #0369a1 100%);
+    border: none;
+    color: white;
+    box-shadow: 0 2px 10px rgba(14, 165, 233, 0.2);
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background 0.2s;
+}
+
+.logout-btn:hover {
+    background: linear-gradient(110deg, #0ea5e9 0%, #0369a1 100%);
+    border: none;
+    color: white;
+    box-shadow: 0 2px 10px rgba(14, 165, 233, 0.2);
+
+}
+
+/* Profile Container */
+.profile-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Info */
+.profile-info {
+    background: linear-gradient(110deg, #0ea5e9 0%, #0369a1 100%);
+    border: none;
+    color: white;
+    box-shadow: 0 2px 10px rgba(14, 165, 233, 0.2);
+
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    
+}
+
+.profile-info h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.profile-info h1 i {
+    color: white;
+}
+
+.profile-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 8px 0;
+    font-size: 1em;
+}
+
+.profile-info i {
+    color: white;
+    width: 20px;
+}
+
+/* Status Section */
+.status-section {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.status-section h2 {
+    color: #1e4d92;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-indicator {
+    display: inline-block;
+    padding: 8px 16px;
+    background: linear-gradient(110deg, #0ea5e9 0%, #0369a1 100%);
+    border: none;
+    color: white;
+    box-shadow: 0 2px 10px rgba(14, 165, 233, 0.2);
+    border-radius: 20px;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.status-description {
+    color: #666;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+/* Update Vacancies Section styles */
+.vacancies-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.vacancy-link {
+    text-decoration: none;
+    display: block;
+    padding: 20px 25px;
+    transition: transform 0.2s;
+}
+
+.vacancy-link:hover {
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.vacancy-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vacancy-content h2 {
+    color: #1e4d92;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.vacancy-content .fa-chevron-right {
+    color: #1e4d92;
+    font-size: 1.2em;
+}
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 0;
+    }
+    
+    .profile-info h1 {
+        font-size: 1.5em;
+    }
+}
+
+    </style>
+
+    <script>
+       // Single window.onload function
+window.onload = async function() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = 'teacher.html';
+        return;
+    }
+
+    try {
+        // Fetch teacher profile data
+        const response = await fetch('http://localhost:5000/api/teacher-apply/profile', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                 'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.error('Profile fetch error:', errorData);
+            throw new Error(errorData.message || 'Failed to fetch profile');
+        }
+
+        const data = await response.json();
+        console.log('Profile data received:', data); // Debug log
+
+
+       
+        const teacherData = data.teacher; 
+
+        // Update profile information with the nested teacher object
+        document.getElementById('teacherName').textContent = teacherData.fullName;
+        document.getElementById('teacherEmail').textContent = teacherData.email;
+        document.getElementById('teacherPhone').textContent = teacherData.phone;
+
+        // Update CV link
+        if (data.cv) {
+            document.getElementById('cvLink').href = `http://localhost:5000/uploads/${data.cv}`;
+        }
+
+
+        // Update application status if available
+        if (data.status) {
+            document.getElementById('statusIndicator').textContent = data.status;
+            // Add different colors based on status
+            if (data.status === 'Approved') {
+                document.getElementById('statusIndicator').style.background = '#4caf50';
+                document.getElementById('statusIndicator').style.color = 'white';
+            } else if (data.status === 'Rejected') {
+                document.getElementById('statusIndicator').style.background = '#f44336';
+                document.getElementById('statusIndicator').style.color = 'white';
+            }
+        }
+
+
+
+    } catch (error) {
+        console.error('Error fetching profile:', error);
+        alert('Error loading profile data');
+    }
+};
+
+// Logout function
+function logout() {
+    localStorage.removeItem('token');
+    window.location.href = 'teacher.html';
+}
+
+
+
+    </script>
+</body>
+</html>
